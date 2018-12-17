@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}log-in{% endblock %}
+{% block content %}
+<h1 xmlns="http://www.w3.org/1999/html">log-in</h1>
+    <p>please,use the following form to log-in</p>
+    <form action="." method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+        <p><input type="submit" value="login"></p>
+    </form>
+{% endblock %}
