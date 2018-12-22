@@ -25,9 +25,9 @@
     <span class="user">
       {% if request.user.is_authenticated %}
         Hello {{ request.user.first_name }},
-        <a href="{% url "logout" %}">Logout</a>
+        <a href="{% url "logout" %}">خروج از حساب کاربری</a>
       {% else %}
-        <a href="{% url "login" %}">Log-in</a>
+        <a href="{% url "login" %}">وارد شوید</a>
       {% endif %}
     </span>
   </div>

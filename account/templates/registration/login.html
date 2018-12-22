@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block title %}log-in{% endblock %}
 {% block content %}
-    <h1>log-in</h1>
+    <h1>ورود به حساب کاربری</h1>
 
     {% if form.errors %}
        <p>your username and password didn't match, please try again</p>
+       <p>if you do not have any account please <a href="{% url "register" %}">register here</a></p>
+
         {% else %}
-        <p>please use the following form to log-in
-            if you do not have any account please <a href="{% url "register" %}">register here</a>
+        <p>لطفا برای ورود به حساب کاربری خود موارد خواسته شده را وارد کنید <br>
+            در صورتی که حساب کاربری ندارید  <a href="{% url "register" %}">اینجا ثبت نام کنید</a>
         </p>
 
 
@@ -17,9 +19,9 @@
         {{ form.as_p }}
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ next }}"/>
-        <p><input type="submit" value="log-in"></p>
+        <p><input type="submit" value="ورود"></p>
     </form>
-    <p><a href="{% url "password_reset" %}">forgotten your password?</a> </p>
+    <p><a href="{% url "password_reset" %}">رمز عبور خود را فراموش کرده اید؟</a> </p>
     </div>
 
 {% endblock %}
