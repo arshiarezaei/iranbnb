@@ -17,6 +17,8 @@ urlpatterns = [
     # alternative way to include authentication views
     # path('', include('django.contrib.auth.urls')),
     path('register/',views.register,name='register')
+    , path('rent_out_a_home',views.rent_out_a_home,name='rent_out_a_home'),
+    path('rent_a_home',views.rent_a_home,name='rent_a_home')
 
 
 

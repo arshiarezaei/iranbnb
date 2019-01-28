@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block title %}log-in{% endblock %}
 {% block content %}
+     {% if request.user.is_authenticated %}
+
+         {% else %}
     <h1>ورود به حساب کاربری</h1>
 
     {% if form.errors %}
-       <p>your username and password didn't match, please try again</p>
-       <p>if you do not have any account please <a href="{% url "register" %}">register here</a></p>
+       <p>نام کاربری و رمز عبور مطابقت ندارد ، لطفا دوباره سعی کنید</p>
+       <p>اگر حساب کاربری ندارید  <a href="{% url "register" %}">اینجا ثبت نام کنید</a></p>
 
         {% else %}
         <p>لطفا برای ورود به حساب کاربری خود موارد خواسته شده را وارد کنید <br>
@@ -15,6 +18,7 @@
 
     {% endif %}
     <div class="login-form">
+
     <form action="{% url "login" %}" method="post">
         {{ form.as_p }}
         {% csrf_token %}
@@ -24,4 +28,5 @@
     <p><a href="{% url "password_reset" %}">رمز عبور خود را فراموش کرده اید؟</a> </p>
     </div>
 
+    {% endif %}
 {% endblock %}
