@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="b54009a1-4907-4828-8b3d-37b8bc33d703" name="New changelist" comment="New changelist" />
-    <list default="true" id="f9eba02f-d704-4552-b403-21f31d0ae9db" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authenticating/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/authenticating/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="f9eba02f-d704-4552-b403-21f31d0ae9db" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +42,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/account/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="-698">
               <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -313,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545089874925</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="registration api added">
+      <created>1557597588857</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557597588857</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -364,7 +365,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first part of authenticating sub system" />
-    <option name="LAST_COMMIT_MESSAGE" value="first part of authenticating sub system" />
+    <MESSAGE value="registration api added" />
+    <option name="LAST_COMMIT_MESSAGE" value="registration api added" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/account/templates/registration/password_change_form.html">
@@ -614,7 +616,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/account/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
+        <state relative-caret-position="-698">
           <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
