@@ -12,11 +12,6 @@ class Profile(models.Model):
         return 'profile for user {}'.format(self.user.username)
 
 
-class TestModels(models.Model):
-    name = models.CharField(max_length=30)
-    family = models.CharField(max_length=30)
-    
-
 class RentOutAHome(models.Model):
     surface_area = models.IntegerField(blank=True)
     number_of_rooms = models.SmallIntegerField(blank=True)

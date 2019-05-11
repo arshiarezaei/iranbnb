@@ -4,6 +4,11 @@ from django.contrib.auth import authenticate,login
 from .form import LoginForm,UserRegistrationForm,RentOutAHomeForm
 from django.contrib.auth.decorators import login_required
 from .models import RentOutAHome
+from rest_framework.views import APIView
+from .serializer import UserSerializer,RentOutAHomeSerializer
+from rest_framework.response import Response
+from django.contrib.auth.models import User
+from django.utils.decorators import method_decorator
 
 
 def user_login(request):
@@ -67,3 +72,34 @@ def rent_out_a_home(request):
 @login_required
 def rent_a_home(request):
     return render(request,'account/rent_a_home.html')
+
+
+class UserModelApi(APIView):
+
+    def get(self,request):
+        users = User.objects.all().values('username','first_name','email','password')
+        user_list = list(users)
+        return Response({"users":user_list})
+
+    def post(self,request):
+        user = request.data.get('newUser')
+        serializer = UserSerializer(data=user,many=True)
+        if serializer.is_valid(raise_exception=True):
+            save = serializer.save()
+        return Response(serializer.errors)
+
+
+class RentOutAHomeApi(APIView):
+    @method_decorator(login_required)
+    def get(self,request):
+        homes=RentOutAHome.objects.all().values()
+        homes_list = list(homes)
+        return Response({"homes":homes_list})
+
+    @method_decorator(login_required)
+    def post(self,request):
+        home = request.data.get('newHome')
+        serializer = RentOutAHomeSerializer(data=home,many=False)
+        if serializer.is_valid(raise_exception=True):
+            save = serializer.save()
+        return Response(serializer.errors)
