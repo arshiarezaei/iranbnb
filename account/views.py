@@ -4,8 +4,9 @@ from django.contrib.auth import authenticate,login
 from .form import LoginForm,UserRegistrationForm,RentOutAHomeForm
 from django.contrib.auth.decorators import login_required
 from .models import RentOutAHome
+from .models import ReservedHomes as ReservedHomesModel
 from rest_framework.views import APIView
-from .serializer import UserSerializer,RentOutAHomeSerializer
+from .serializer import UserSerializer,RentOutAHomeSerializer,ReservedAHomeSerializer
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from django.utils.decorators import method_decorator
@@ -53,13 +54,13 @@ def rent_out_a_home(request):
     # TODO : store valid data into account
 
     if request.method == 'POST':
-        form = RentOutAHomeForm(request.POST)
+        # form = RentOutAHomeForm(request.POST)
         home = RentOutAHome(surface_area=request.POST['surface_area'], number_of_rooms=request.POST['number_of_rooms'],
                             address=request.POST['address'], start_date=request.POST['start_date'],
                             finale_date=request.POST['finale_date'],
                             identity_docs=request.POST['identity_docs'], photo=request.POST['photo']
                             , cost_per_day=request.POST['cost_per_day'],
-                            owner=request.user)
+                            owner=request.user,)
         home.save()
         return HttpResponse ('valid')
 
@@ -103,3 +104,16 @@ class RentOutAHomeApi(APIView):
         if serializer.is_valid(raise_exception=True):
             save = serializer.save()
         return Response(serializer.errors)
+
+
+class ReservedHomes(APIView):
+    def get(self,request):
+        homes= ReservedHomesModel.objects.all()
+        homes_list=list(homes)
+        return Response({"homes":homes_list})
+
+
+def find_home():
+    return RentOutAHome.objects.filter(is_available='True')
+
+

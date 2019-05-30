@@ -8,7 +8,7 @@
 {% block content %}
   <h1>خانه خود را برای اجاره قرار دهید</h1>
   <p>لطفا  از فرم زیر استفاده نمایید</p>
-  <form action="" method="POST" >
+  <form action="" method="POST"enctype="multipart/form-data" >
     {{ rent_out_a_home_form.as_p }}
     {% csrf_token %}
     <p><input align="right" type="submit" value="افزودن خانه"></p>

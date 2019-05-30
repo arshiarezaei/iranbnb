@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, RentOutAHome
+from .models import User, RentOutAHome,ReservedHomes
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -20,3 +20,12 @@ class RentOutAHomeSerializer(serializers.ModelSerializer):
     class Meta:
         model = RentOutAHome
         fields = '__all__'
+
+
+class ReservedAHomeSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        return ReservedHomes.objects.create(**validated_data)
+
+    class Meta:
+        model = ReservedHomes
+        fields='__all__'

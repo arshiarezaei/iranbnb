@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import TestModels,RentOutAHome
+from .models import RentOutAHome,ReservedHomes
 from django.forms import ModelForm
 
 
@@ -32,11 +32,8 @@ class RentOutAHomeForm(ModelForm):
             ,'cost_per_day']
 
 
-class TestForm(ModelForm):
-    name = forms.CharField(max_length=30)
-    family = forms.CharField(max_length=30)
+class ReservedHomes(ModelForm):
 
     class Meta:
-        model = TestModels
-        fields = '__all__'
-
+        model = ReservedHomes
+        fields = ['start_date','final_date']
